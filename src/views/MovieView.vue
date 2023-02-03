@@ -1,15 +1,25 @@
 <script setup lang="ts">
 import { useRoute, useRouter } from "vue-router";
 import { onMounted } from "vue";
+import { useMovieStore } from "../stores/movie";
+import { storeToRefs } from "pinia";
+import MovieItem from "@/components/MovieItem.vue";
 
-const router = useRouter();
+const store = useMovieStore();
+
+const { movieSelected } = storeToRefs(store);
+
 const route = useRoute();
 
-onMounted(() => {
-  console.log(route.params.id);
-  console.log(route.query.type);
+const getContent = async () => {
+  store.getMovie(Number(route.params.id), <string>route.query.type);
+};
+
+onMounted(async () => {
+  await getContent();
+  console.log(movieSelected);
 });
 </script>
 <template>
-  <div>Movie View</div>
+  <MovieItem :movie="movieSelected" type="poster" :title="store.movieTitle" />
 </template>

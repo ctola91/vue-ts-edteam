@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import FirstComponent from "@/components/FirstComponent.vue";
-import MovieItem from "@/components/MovieItem.vue";
+// import MovieItem from "@/components/MovieItem.vue";
 import MoviePerson from "@/components/MoviePerson.vue";
 import SecondComponent from "@/components/SecondComponent.vue";
 import ThirdComponent from "@/components/ThirdComponent.vue";
@@ -25,7 +25,7 @@ import type { Person } from "@/types/Person";
     /> -->
     <!-- <ThirdComponent :person="person" /> -->
     <MoviePerson />
-    <MovieItem />
+    <!-- <MovieItem /> -->
   </div>
 </template>
 

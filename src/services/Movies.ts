@@ -10,7 +10,13 @@ const getTrendingMovies = async (
   return response.data;
 };
 
+const getSingleMovie = async (id: number, type: string) => {
+  const response = await API.get(`/${type}/${id}`);
+  return response.data;
+};
+
 export default {
   getTrendingMovies,
+  getSingleMovie,
   imageURL,
 };
